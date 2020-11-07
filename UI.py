@@ -4,7 +4,7 @@ import socket
 from SocketWrapper import *
 
 IP = '127.0.0.1'
-PORT = 8821
+PORT = 8822
 
 
 class Application(Frame):
@@ -23,9 +23,9 @@ class Application(Frame):
         self.passFrame.pack({"side": "bottom"})
         user_name = self.userFrame.children[str(self.userName).split('.')[3]].get("1.0",END)
         user_pass = self.passFrame.children[str(self.userPass).split('.')[3]].get("1.0",END)
-        user_passConfirm = self.passConfirmFrame.children[str(self.userConfPass).split('.')[3]].get("1.0",END)
-        if not user_pass == user_passConfirm:
-            print("Your password is not the same as the confirm password. try again please")
+        user_passconfirm = self.passConfirmFrame.children[str(self.userConfPass).split('.')[3]].get("1.0",END)
+        if not user_pass == user_passconfirm:
+            print("Your password is not the same as the confirm password.")
         else:
             self.open_socket()
             self.socket_wrapper.send_with_len("signon")
@@ -48,7 +48,7 @@ class Application(Frame):
 
         data_from_server = self.socket_wrapper.read_with_len()
         print(data_from_server)
-        tkMessageBox.showinfo(title=None, message=data_from_server)
+        tkinter.MessageBox.showinfo(title=None, message=data_from_server)
         self.close_socket()
 
     def createWidgets(self):

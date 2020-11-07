@@ -6,7 +6,7 @@ username = "null"
 password = "null"
 con_pass = "null"
 IP = '0.0.0.0'
-PORT = 8821
+PORT = 8822
 
 incorrect_message = "one of the details is incorrect"
 

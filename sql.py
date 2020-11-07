@@ -7,9 +7,8 @@ class DB:
             c.execute("INSERT INTO users VALUES (?, ?)", (user_name, user_pass))
             self.conn.commit()
             return True
-        except(Exception, e):
+        except (Exception, e):
             print(e)
-            return False
 
     def get_user(self, user_name):
         try:
